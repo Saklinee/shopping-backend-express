@@ -22,7 +22,10 @@ app.use(express.json());
 app.use(logger);
 
 // Static files and images
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use(
+  '/static',
+  express.static(path.join(__dirname, 'routes', 'middleware', 'public'))
+);
 app.get('/images/:file', imageRoute);
 
 // Health check
